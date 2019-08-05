@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "markdown-magic": "^0.1.25",
     "markdown-table": "^1.1.3"
   }
 }
