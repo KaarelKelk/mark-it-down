@@ -21,14 +21,17 @@ markitdown.pushArray([
 
 	// Generators
 	markitdown.markdown.headings.h1('Generators'),
+
 	// Raw
 	markitdown.markdown.headings.h2('Raw'),
 	markitdown.markdown.script('javascript', 'Example: markitdown.markdown.raw("Some raw text to push into **.md**")'),
 	markitdown.markdown.raw("Some raw text to push into **.md**"),
+
 	// Tables
 	markitdown.markdown.headings.h2('Tables'),
 	markitdown.markdown.script('javascript', "Example: markitdown.markdown.table(['Name', 'Email'], [['John', 'john@doe.com']])"),
 	markitdown.markdown.table(['Name', 'Email'], [['John', 'john@doe.com'], ['Snow', 'john@snow.com']]),
+
 	// Headings
 	markitdown.markdown.headings.h2('Headings'),
 	markitdown.markdown.script('javascript', "Example: markitdown.markdown.h1(\"Lorem ipsum\")"),
@@ -37,6 +40,7 @@ markitdown.pushArray([
 	markitdown.markdown.script('javascript', "Example: markitdown.markdown.h4(\"Lorem ipsum\")"),
 	markitdown.markdown.script('javascript', "Example: markitdown.markdown.h5(\"Lorem ipsum\")"),
 	markitdown.markdown.script('javascript', "Example: markitdown.markdown.h6(\"Lorem ipsum\")"),
+
 	// Script
 	markitdown.markdown.headings.h2('Script'),
 	markitdown.markdown.script('javascript', 'markitdown.markdown.script(\'javascript\', \'console.log("Hello World")\')'),
