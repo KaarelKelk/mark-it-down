@@ -1,6 +1,9 @@
+/* eslint-disable global-require */
 module.exports = {
 	raw: require('./raw'),
 	table: require('./table'),
 	script: require('./script'),
 	headings: require('./headings'),
+	list: require('./list'),
+	link: require('./link'),
 }

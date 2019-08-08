@@ -1,3 +1,1 @@
-module.exports = (scriptType, script) => {
-	return `\`\`\`${scriptType}\n${script}\n\`\`\``
-}
+module.exports = (scriptType, script) => `\`\`\`${scriptType}\n${script}\n\`\`\``
