@@ -17,7 +17,7 @@ md.save(path.join(__dirname, 'readme.md'))
 const mdContent = md.stringify()
 ```
 # Generators
-# List of generators
+## List of generators
 * md.markdown.raw
 * md.markdown.table
 * md.markdown.script

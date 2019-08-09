@@ -38,7 +38,7 @@ const SECTION_USAGE = [
 
 const SECTION_GENERATORS_LIST = [
 	md.markdown.headings.h1('Generators'),
-	md.markdown.headings.h1('List of generators'),
+	md.markdown.headings.h2('List of generators'),
 	...toList('md.markdown').map(item => md.markdown.list(item)),
 ]
 
