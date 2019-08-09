@@ -2,7 +2,7 @@ const path = require('path')
 const { MarkItDown } = require('./src/MarkItDown')
 
 const md = new MarkItDown()
-const mdPath = path.join(__dirname, '..', 'readme.md')
+const mdPath = path.join(__dirname, 'readme.md')
 
 
 md.pushArray([
@@ -25,7 +25,7 @@ md.pushArray([
 			'md.push(md.markdown.headings.h3(\'heading 3\'))',
 			'',
 			'md.save(path.join(__dirname, \'readme.md\'))',
-			'or',
+			'// or',
 			'const mdContent = md.stringify()',
 		].join('\n'),
 	),

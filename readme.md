@@ -13,6 +13,8 @@ md.pushArray([
 md.push(md.markdown.headings.h3('heading 3'))
 
 md.save(path.join(__dirname, 'readme.md'))
+// or
+const mdContent = md.stringify()
 ```
 # Generators
 ## Raw
