@@ -10,6 +10,7 @@ const { toList } = require('./src/generators')
  */
 
 const SECTION_MAIN = [
+	md.markdown.headings.h1('MARK-IT-DOWN'),
 	md.markdown.raw('This library will help with generating markodwn.md files easily within nodeJS.'),
 ]
 
@@ -36,6 +37,7 @@ const SECTION_USAGE = [
 ]
 
 const SECTION_GENERATORS_LIST = [
+	md.markdown.headings.h1('Generators'),
 	md.markdown.headings.h1('List of generators'),
 	...toList('md.markdown').map(item => md.markdown.list(item)),
 ]
@@ -104,12 +106,10 @@ const GENERATOR_SCRIPT = [
  */
 md.pushArray([
 	// Main
-	md.markdown.headings.h1('MARK-IT-DOWN'),
 	...SECTION_MAIN,
 	...SECTION_USAGE,
 
 	// Generators
-	md.markdown.headings.h1('Generators'),
 	...SECTION_GENERATORS_LIST,
 
 	...GENERATOR_RAW,
