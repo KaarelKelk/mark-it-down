@@ -13,6 +13,7 @@ class MarkItDown {
 	 */
 	push(definition) {
 		this.definitions.push(definition)
+		return this
 	}
 
 	/**
@@ -41,6 +42,7 @@ class MarkItDown {
 			this.stringify(),
 			{ encoding: 'utf8', flag: 'w' },
 		)
+		return this
 	}
 }
 

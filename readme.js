@@ -4,6 +4,7 @@ const { MarkItDown } = require('./src/MarkItDown')
 const md = new MarkItDown()
 const mdPath = path.join(__dirname, 'readme.md')
 
+const { toList } = require('./src/generators')
 /**
  * SECTIONS
  */
@@ -21,8 +22,8 @@ const SECTION_USAGE = [
 			'',
 			'// Push multiple strings',
 			'md.pushArray([',
-			' md.markdown.headings.h1(\'heading 1\')',
-			' md.markdown.headings.h2(\'heading 2\')',
+			' md.markdown.headings.h1(\'heading 1\'),',
+			' md.markdown.headings.h2(\'heading 2\'),',
 			'])',
 			'// Push single string',
 			'md.push(md.markdown.headings.h3(\'heading 3\'))',
@@ -32,6 +33,11 @@ const SECTION_USAGE = [
 			'const mdContent = md.stringify()',
 		].join('\n'),
 	),
+]
+
+const SECTION_GENERATORS_LIST = [
+	md.markdown.headings.h1('List of generators'),
+	...toList('md.markdown').map(item => md.markdown.list(item)),
 ]
 
 /**
@@ -104,6 +110,8 @@ md.pushArray([
 
 	// Generators
 	md.markdown.headings.h1('Generators'),
+	...SECTION_GENERATORS_LIST,
+
 	...GENERATOR_RAW,
 	...GENERATOR_LINK,
 	...GENERATOR_LIST,

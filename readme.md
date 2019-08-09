@@ -6,8 +6,8 @@ const markitdown = new MarkItDown()
 
 // Push multiple strings
 md.pushArray([
- md.markdown.headings.h1('heading 1')
- md.markdown.headings.h2('heading 2')
+ md.markdown.headings.h1('heading 1'),
+ md.markdown.headings.h2('heading 2'),
 ])
 // Push single string
 md.push(md.markdown.headings.h3('heading 3'))
@@ -17,6 +17,18 @@ md.save(path.join(__dirname, 'readme.md'))
 const mdContent = md.stringify()
 ```
 # Generators
+# List of generators
+* md.markdown.raw
+* md.markdown.table
+* md.markdown.script
+* md.markdown.headings.h1
+* md.markdown.headings.h2
+* md.markdown.headings.h3
+* md.markdown.headings.h4
+* md.markdown.headings.h5
+* md.markdown.headings.h6
+* md.markdown.list
+* md.markdown.link
 ## Raw
 ```javascript
 Example: md.markdown.raw("Some raw text to push into **.md**")
