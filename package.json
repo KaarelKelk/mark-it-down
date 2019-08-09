@@ -1,13 +1,13 @@
 {
   "name": "mark-it-down",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "src/index.js",
   "scripts": {
     "version": "yarn version",
     "lint": "eslint .",
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"readme:md": "node readme.js && git add readme.md"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "readme:md": "node readme.js && git add readme.md"
   },
   "keywords": [],
   "author": "",
@@ -22,9 +22,9 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "pre-commit": "^1.2.2"
-	},
-	"pre-commit": [
-		"lint",
-		"readme:md"
+  },
+  "pre-commit": [
+    "lint",
+    "readme:md"
   ]
 }
