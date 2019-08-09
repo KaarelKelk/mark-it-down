@@ -18,17 +18,17 @@ const mdContent = md.stringify()
 ```
 # Generators
 ## List of generators
-* md.markdown.raw
-* md.markdown.table
-* md.markdown.script
 * md.markdown.headings.h1
 * md.markdown.headings.h2
 * md.markdown.headings.h3
 * md.markdown.headings.h4
 * md.markdown.headings.h5
 * md.markdown.headings.h6
-* md.markdown.list
 * md.markdown.link
+* md.markdown.list
+* md.markdown.raw
+* md.markdown.script
+* md.markdown.table
 ## Raw
 ```javascript
 Example: md.markdown.raw("Some raw text to push into **.md**")
