@@ -4,6 +4,7 @@ const { MarkItDown } = require('./MarkItDown')
 const md = new MarkItDown()
 const mdPath = path.join(__dirname, '..', 'readme.md')
 
+
 md.pushArray([
 	md.markdown.raw('# MARK-IT-DOWN'),
 	md.markdown.raw('This library will help with generating markodwn.md files easily within nodeJS.'),
@@ -24,6 +25,8 @@ md.pushArray([
 			'md.push(md.markdown.headings.h3(\'heading 3\'))',
 			'',
 			'md.save(path.join(__dirname, \'readme.md\'))',
+			'or',
+			'const mdContent = md.stringify()',
 		].join('\n'),
 	),
 
