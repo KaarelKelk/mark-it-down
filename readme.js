@@ -116,10 +116,6 @@ md.pushArray([
 	...GENERATOR_LINK,
 	...GENERATOR_LIST,
 	...GENERATOR_TABLES,
-	...GENERATOR_TABLES,
 	...GENERATOR_HEADINGS,
 	...GENERATOR_SCRIPT,
-])
-
-
-md.save(mdPath)
+]).save(mdPath)
