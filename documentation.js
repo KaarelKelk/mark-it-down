@@ -1,5 +1,5 @@
 const path = require('path')
-const { MarkItDown } = require('./MarkItDown')
+const { MarkItDown } = require('./src/MarkItDown')
 
 const md = new MarkItDown()
 const mdPath = path.join(__dirname, '..', 'readme.md')
