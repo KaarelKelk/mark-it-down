@@ -15,6 +15,12 @@ const SECTION_MAIN = [
 ]
 
 const SECTION_USAGE = [
+	markdown.headings.h1('Installation'),
+	markdown.script('javascript', [
+		'// Add following line to your package.json and specify version if needed',
+		'"mark-it-down": "https://github.com/KaarelKelk/mark-it-down"',
+	]),
+
 	markdown.headings.h1('Usage'),
 	markdown.p('Basic'),
 	markdown.script('javascript', [
