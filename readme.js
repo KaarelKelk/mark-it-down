@@ -1,5 +1,5 @@
 const path = require('path')
-const { MarkItDown } = require('./src/MarkItDown')
+const { MarkItDown, markdown } = require('./src')
 
 const md = new MarkItDown()
 const mdPath = path.join(__dirname, 'readme.md')
@@ -10,43 +10,45 @@ const { toList } = require('./src/generators')
  */
 
 const SECTION_MAIN = [
-	md.markdown.headings.h1('MARK-IT-DOWN'),
-	md.markdown.raw('This library will help with generating markodwn.md files easily within nodeJS.'),
+	markdown.headings.h1('MARK-IT-DOWN'),
+	markdown.raw('This library will help with generating markodwn.md files easily within nodeJS.'),
 ]
 
 const SECTION_USAGE = [
-	md.markdown.headings.h1('Usage'),
-	md.markdown.p('Basic'),
-	md.markdown.script('javascript', [
+	markdown.headings.h1('Usage'),
+	markdown.p('Basic'),
+	markdown.script('javascript', [
+		'const { MarkItDown, markdown } = require(\'./src/MarkItDown\')',
+		'',
 		'const markitdown = new MarkItDown()',
 		'',
 		'// Push multiple strings',
 		'md.pushArray([',
-		' md.markdown.headings.h1(\'heading 1\'),',
-		' md.markdown.headings.h2(\'heading 2\'),',
+		' markdown.headings.h1(\'heading 1\'),',
+		' markdown.headings.h2(\'heading 2\'),',
 		'])',
 		'// Push single string',
-		'md.push(md.markdown.headings.h3(\'heading 3\'))',
+		'md.push(markdown.headings.h3(\'heading 3\'))',
 		'',
 		'md.save(path.join(__dirname, \'readme.md\'))',
 		'// or',
 		'const mdContent = md.stringify()',
 	].join('\n')),
 	'',
-	md.markdown.p('Combined'),
-	md.markdown.script('javascript', [
+	markdown.p('Combined'),
+	markdown.script('javascript', [
 		'md.pushArray([',
-		' md.markdown.list(md.markdown.headings.h6(\'heading inside list\')),',
+		' markdown.list(markdown.headings.h6(\'heading inside list\')),',
 		'])',
 	].join('\n')),
-	md.markdown.headings.h4('Output'),
-	md.markdown.list(md.markdown.headings.h6('heading inside list')),
+	markdown.headings.h4('Output'),
+	markdown.list(markdown.headings.h6('heading inside list')),
 ]
 
 const SECTION_GENERATORS_LIST = [
-	md.markdown.headings.h1('Generators'),
-	md.markdown.headings.h2('List of generators'),
-	...toList('md.markdown').map(item => md.markdown.list(item)),
+	markdown.headings.h1('Generators'),
+	markdown.headings.h2('List of generators'),
+	...toList('markdown').map(item => md.markdown.list(item)),
 ]
 
 /**
@@ -55,73 +57,73 @@ const SECTION_GENERATORS_LIST = [
 
 // RAW
 const GENERATOR_RAW = [
-	md.markdown.headings.h2('Raw'),
-	md.markdown.script('javascript', 'Example: md.markdown.raw(\'Some raw text to push into **.md**\')'),
-	md.markdown.headings.h4('Output'),
-	md.markdown.raw('Some raw text to push into **.md**'),
+	markdown.headings.h2('Raw'),
+	markdown.script('javascript', 'Example: markdown.raw(\'Some raw text to push into **.md**\')'),
+	markdown.headings.h4('Output'),
+	markdown.raw('Some raw text to push into **.md**'),
 ]
 
 // Paragraph
 const GENERATOR_P = [
-	md.markdown.headings.h2('Paragraph'),
-	md.markdown.script('javascript', 'Example: md.markdown.p(\'Some paragraph text\')'),
-	md.markdown.headings.h4('Output'),
-	md.markdown.p('Some paragraph text'),
+	markdown.headings.h2('Paragraph'),
+	markdown.script('javascript', 'Example: markdown.p(\'Some paragraph text\')'),
+	markdown.headings.h4('Output'),
+	markdown.p('Some paragraph text'),
 ]
 
 // Paragraph
 const GENERATOR_BOLD = [
-	md.markdown.headings.h2('Bold'),
-	md.markdown.script('javascript', 'Example: md.markdown.bold(\'Some bold text\')'),
-	md.markdown.headings.h4('Output'),
-	md.markdown.bold('Some bold text'),
+	markdown.headings.h2('Bold'),
+	markdown.script('javascript', 'Example: markdown.bold(\'Some bold text\')'),
+	markdown.headings.h4('Output'),
+	markdown.bold('Some bold text'),
 ]
 
 // LINK
 const GENERATOR_LINK = [
-	md.markdown.headings.h2('Links'),
-	md.markdown.script('javascript', 'Example: md.markdown.link(\'url: string\', \'name: string?\', \'title?: string\')'),
-	md.markdown.headings.h4('Output'),
+	markdown.headings.h2('Links'),
+	markdown.script('javascript', 'Example: markdown.link(\'url: string\', \'name: string?\', \'title?: string\')'),
+	markdown.headings.h4('Output'),
 
-	md.markdown.list(`${md.markdown.link('https://www.google.ee')} url`),
-	md.markdown.list(`${md.markdown.link('https://www.google.ee', 'Google')} url + name`),
-	md.markdown.list(`${md.markdown.link('https://www.google.ee', 'Google', 'Google\'s homepage')} url + name + title`),
+	markdown.list(`${markdown.link('https://www.google.ee')} url`),
+	markdown.list(`${markdown.link('https://www.google.ee', 'Google')} url + name`),
+	markdown.list(`${markdown.link('https://www.google.ee', 'Google', 'Google\'s homepage')} url + name + title`),
 ]
 
 // List
 const GENERATOR_LIST = [
-	md.markdown.headings.h2('List'),
-	md.markdown.script('javascript', 'Example: md.markdown.list(\'List item\')'),
-	md.markdown.headings.h4('Output'),
-	md.markdown.list('List item #1'),
-	md.markdown.list('List item #2'),
+	markdown.headings.h2('List'),
+	markdown.script('javascript', 'Example: markdown.list(\'List item\')'),
+	markdown.headings.h4('Output'),
+	markdown.list('List item #1'),
+	markdown.list('List item #2'),
 ]
 
 // TABLES
 const GENERATOR_TABLES = [
-	md.markdown.headings.h2('Tables'),
-	md.markdown.script('javascript', 'Example: md.markdown.table([\'Name\', \'Email\'], [[\'John\', \'john@doe.com\']])'),
-	md.markdown.headings.h4('Output'),
-	md.markdown.table(['Name', 'Email'], [['John', 'john@doe.com'], ['Snow', 'john@snow.com']]),
+	markdown.headings.h2('Tables'),
+	markdown.script('javascript', 'Example: markdown.table([\'Name\', \'Email\'], [[\'John\', \'john@doe.com\']])'),
+	markdown.headings.h4('Output'),
+	markdown.table(['Name', 'Email'], [['John', 'john@doe.com'], ['Snow', 'john@snow.com']]),
 ]
 
 // Headings
 const GENERATOR_HEADINGS = [
-	md.markdown.headings.h2('Headings'),
-	md.markdown.script('javascript', 'Example: md.markdown.h1(\'Lorem ipsum\')'),
-	md.markdown.script('javascript', 'Example: md.markdown.h2(\'Lorem ipsum\')'),
-	md.markdown.script('javascript', 'Example: md.markdown.h3(\'Lorem ipsum\')'),
-	md.markdown.script('javascript', 'Example: md.markdown.h4(\'Lorem ipsum\')'),
-	md.markdown.script('javascript', 'Example: md.markdown.h5(\'Lorem ipsum\')'),
-	md.markdown.script('javascript', 'Example: md.markdown.h6(\'Lorem ipsum\')'),
+	markdown.headings.h2('Headings'),
+	markdown.script('javascript', 'Example: markdown.h1(\'Lorem ipsum\')'),
+	markdown.script('javascript', 'Example: markdown.h2(\'Lorem ipsum\')'),
+	markdown.script('javascript', 'Example: markdown.h3(\'Lorem ipsum\')'),
+	markdown.script('javascript', 'Example: markdown.h4(\'Lorem ipsum\')'),
+	markdown.script('javascript', 'Example: markdown.h5(\'Lorem ipsum\')'),
+	markdown.script('javascript', 'Example: markdown.h6(\'Lorem ipsum\')'),
 ]
 
 // Script
 const GENERATOR_SCRIPT = [
-	md.markdown.headings.h2('Script'),
-	md.markdown.script('javascript', 'md.markdown.script(\'javascript\', \'console.log(\'Hello World\')\')'),
-	md.markdown.headings.h4('Output'),
-	md.markdown.script('javascript', 'console.log(\'Hello World\')'),
+	markdown.headings.h2('Script'),
+	markdown.script('javascript', 'markdown.script(\'javascript\', \'console.log(\'Hello World\')\')'),
+	markdown.headings.h4('Output'),
+	markdown.script('javascript', 'console.log(\'Hello World\')'),
 ]
 
 /**
