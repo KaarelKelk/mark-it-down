@@ -1,5 +1,5 @@
 # MARK-IT-DOWN
-This library will help with generating markodwn.md files easily within nodeJS.
+This library is a POC for generating markodwn.md files easily and dynamically within nodeJS.
 # Usage
 
 Basic

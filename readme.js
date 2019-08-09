@@ -11,7 +11,7 @@ const { toList } = require('./src/generators')
 
 const SECTION_MAIN = [
 	markdown.headings.h1('MARK-IT-DOWN'),
-	markdown.raw('This library will help with generating markodwn.md files easily within nodeJS.'),
+	markdown.raw('This library is a POC for generating markodwn.md files easily and dynamically within nodeJS.'),
 ]
 
 const SECTION_USAGE = [
