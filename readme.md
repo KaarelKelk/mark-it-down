@@ -2,7 +2,8 @@
 This library is a POC for generating markodwn.md files easily and dynamically within nodeJS.
 # Installation
 ```javascript
-// Add following line to your package.json and specify version if needed,"mark-it-down": "https://github.com/KaarelKelk/mark-it-down"
+// Add following line to your package.json and specify version if needed
+"mark-it-down": "https://github.com/KaarelKelk/mark-it-down"
 ```
 # Usage
 

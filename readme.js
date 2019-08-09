@@ -19,7 +19,7 @@ const SECTION_USAGE = [
 	markdown.script('javascript', [
 		'// Add following line to your package.json and specify version if needed',
 		'"mark-it-down": "https://github.com/KaarelKelk/mark-it-down"',
-	]),
+	].join('\n')),
 
 	markdown.headings.h1('Usage'),
 	markdown.p('Basic'),
