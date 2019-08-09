@@ -16,24 +16,31 @@ const SECTION_MAIN = [
 
 const SECTION_USAGE = [
 	md.markdown.headings.h1('Usage'),
-	md.markdown.script(
-		'javascript',
-		[
-			'const markitdown = new MarkItDown()',
-			'',
-			'// Push multiple strings',
-			'md.pushArray([',
-			' md.markdown.headings.h1(\'heading 1\'),',
-			' md.markdown.headings.h2(\'heading 2\'),',
-			'])',
-			'// Push single string',
-			'md.push(md.markdown.headings.h3(\'heading 3\'))',
-			'',
-			'md.save(path.join(__dirname, \'readme.md\'))',
-			'// or',
-			'const mdContent = md.stringify()',
-		].join('\n'),
-	),
+	md.markdown.p('Basic'),
+	md.markdown.script('javascript', [
+		'const markitdown = new MarkItDown()',
+		'',
+		'// Push multiple strings',
+		'md.pushArray([',
+		' md.markdown.headings.h1(\'heading 1\'),',
+		' md.markdown.headings.h2(\'heading 2\'),',
+		'])',
+		'// Push single string',
+		'md.push(md.markdown.headings.h3(\'heading 3\'))',
+		'',
+		'md.save(path.join(__dirname, \'readme.md\'))',
+		'// or',
+		'const mdContent = md.stringify()',
+	].join('\n')),
+	'',
+	md.markdown.p('Combined'),
+	md.markdown.script('javascript', [
+		'md.pushArray([',
+		' md.markdown.list(md.markdown.headings.h6(\'heading inside list\')),',
+		'])',
+	].join('\n')),
+	md.markdown.headings.h4('Output'),
+	md.markdown.list(md.markdown.headings.h6('heading inside list')),
 ]
 
 const SECTION_GENERATORS_LIST = [
@@ -49,9 +56,25 @@ const SECTION_GENERATORS_LIST = [
 // RAW
 const GENERATOR_RAW = [
 	md.markdown.headings.h2('Raw'),
-	md.markdown.script('javascript', 'Example: md.markdown.raw("Some raw text to push into **.md**")'),
+	md.markdown.script('javascript', 'Example: md.markdown.raw(\'Some raw text to push into **.md**\')'),
 	md.markdown.headings.h4('Output'),
 	md.markdown.raw('Some raw text to push into **.md**'),
+]
+
+// Paragraph
+const GENERATOR_P = [
+	md.markdown.headings.h2('Paragraph'),
+	md.markdown.script('javascript', 'Example: md.markdown.p(\'Some paragraph text\')'),
+	md.markdown.headings.h4('Output'),
+	md.markdown.p('Some paragraph text'),
+]
+
+// Paragraph
+const GENERATOR_BOLD = [
+	md.markdown.headings.h2('Bold'),
+	md.markdown.script('javascript', 'Example: md.markdown.bold(\'Some bold text\')'),
+	md.markdown.headings.h4('Output'),
+	md.markdown.bold('Some bold text'),
 ]
 
 // LINK
@@ -85,20 +108,20 @@ const GENERATOR_TABLES = [
 // Headings
 const GENERATOR_HEADINGS = [
 	md.markdown.headings.h2('Headings'),
-	md.markdown.script('javascript', 'Example: md.markdown.h1("Lorem ipsum")'),
-	md.markdown.script('javascript', 'Example: md.markdown.h2("Lorem ipsum")'),
-	md.markdown.script('javascript', 'Example: md.markdown.h3("Lorem ipsum")'),
-	md.markdown.script('javascript', 'Example: md.markdown.h4("Lorem ipsum")'),
-	md.markdown.script('javascript', 'Example: md.markdown.h5("Lorem ipsum")'),
-	md.markdown.script('javascript', 'Example: md.markdown.h6("Lorem ipsum")'),
+	md.markdown.script('javascript', 'Example: md.markdown.h1(\'Lorem ipsum\')'),
+	md.markdown.script('javascript', 'Example: md.markdown.h2(\'Lorem ipsum\')'),
+	md.markdown.script('javascript', 'Example: md.markdown.h3(\'Lorem ipsum\')'),
+	md.markdown.script('javascript', 'Example: md.markdown.h4(\'Lorem ipsum\')'),
+	md.markdown.script('javascript', 'Example: md.markdown.h5(\'Lorem ipsum\')'),
+	md.markdown.script('javascript', 'Example: md.markdown.h6(\'Lorem ipsum\')'),
 ]
 
 // Script
 const GENERATOR_SCRIPT = [
 	md.markdown.headings.h2('Script'),
-	md.markdown.script('javascript', 'md.markdown.script(\'javascript\', \'console.log("Hello World")\')'),
+	md.markdown.script('javascript', 'md.markdown.script(\'javascript\', \'console.log(\'Hello World\')\')'),
 	md.markdown.headings.h4('Output'),
-	md.markdown.script('javascript', 'console.log("Hello World")'),
+	md.markdown.script('javascript', 'console.log(\'Hello World\')'),
 ]
 
 /**
@@ -113,6 +136,8 @@ md.pushArray([
 	...SECTION_GENERATORS_LIST,
 
 	...GENERATOR_RAW,
+	...GENERATOR_P,
+	...GENERATOR_BOLD,
 	...GENERATOR_LINK,
 	...GENERATOR_LIST,
 	...GENERATOR_TABLES,

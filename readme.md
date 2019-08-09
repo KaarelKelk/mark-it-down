@@ -1,6 +1,9 @@
 # MARK-IT-DOWN
 This library will help with generating markodwn.md files easily within nodeJS.
 # Usage
+
+Basic
+
 ```javascript
 const markitdown = new MarkItDown()
 
@@ -16,8 +19,20 @@ md.save(path.join(__dirname, 'readme.md'))
 // or
 const mdContent = md.stringify()
 ```
+
+
+Combined
+
+```javascript
+md.pushArray([
+ md.markdown.list(md.markdown.headings.h6('heading inside list')),
+])
+```
+#### Output
+* ###### heading inside list
 # Generators
 ## List of generators
+* md.markdown.bold
 * md.markdown.headings.h1
 * md.markdown.headings.h2
 * md.markdown.headings.h3
@@ -26,15 +41,30 @@ const mdContent = md.stringify()
 * md.markdown.headings.h6
 * md.markdown.link
 * md.markdown.list
+* md.markdown.p
 * md.markdown.raw
 * md.markdown.script
 * md.markdown.table
 ## Raw
 ```javascript
-Example: md.markdown.raw("Some raw text to push into **.md**")
+Example: md.markdown.raw('Some raw text to push into **.md**')
 ```
 #### Output
 Some raw text to push into **.md**
+## Paragraph
+```javascript
+Example: md.markdown.p('Some paragraph text')
+```
+#### Output
+
+Some paragraph text
+
+## Bold
+```javascript
+Example: md.markdown.bold('Some bold text')
+```
+#### Output
+**Some bold text**
 ## Links
 ```javascript
 Example: md.markdown.link('url: string', 'name: string?', 'title?: string')
@@ -61,28 +91,28 @@ Example: md.markdown.table(['Name', 'Email'], [['John', 'john@doe.com']])
 | Snow | john@snow.com |
 ## Headings
 ```javascript
-Example: md.markdown.h1("Lorem ipsum")
+Example: md.markdown.h1('Lorem ipsum')
 ```
 ```javascript
-Example: md.markdown.h2("Lorem ipsum")
+Example: md.markdown.h2('Lorem ipsum')
 ```
 ```javascript
-Example: md.markdown.h3("Lorem ipsum")
+Example: md.markdown.h3('Lorem ipsum')
 ```
 ```javascript
-Example: md.markdown.h4("Lorem ipsum")
+Example: md.markdown.h4('Lorem ipsum')
 ```
 ```javascript
-Example: md.markdown.h5("Lorem ipsum")
+Example: md.markdown.h5('Lorem ipsum')
 ```
 ```javascript
-Example: md.markdown.h6("Lorem ipsum")
+Example: md.markdown.h6('Lorem ipsum')
 ```
 ## Script
 ```javascript
-md.markdown.script('javascript', 'console.log("Hello World")')
+md.markdown.script('javascript', 'console.log('Hello World')')
 ```
 #### Output
 ```javascript
-console.log("Hello World")
+console.log('Hello World')
 ```
