@@ -47,6 +47,15 @@ Example: md.markdown.table(['Name', 'Email'], [['John', 'john@doe.com']])
 | ---- | ------------- |
 | John | john@doe.com  |
 | Snow | john@snow.com |
+## Tables
+```javascript
+Example: md.markdown.table(['Name', 'Email'], [['John', 'john@doe.com']])
+```
+#### Output
+| Name | Email         |
+| ---- | ------------- |
+| John | john@doe.com  |
+| Snow | john@snow.com |
 ## Headings
 ```javascript
 Example: md.markdown.h1("Lorem ipsum")
